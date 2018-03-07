@@ -48,6 +48,19 @@ set whichwrap=b,s,h,l,<,>,[,],~
 " カーソルラインをハイライト"
 set cursorline
 
+set laststatus=2
+set statusline=%<%f\ %m%r%h%w
+set statusline+=%{'['.(&fenc!=''?&fenc:&enc).']['.&fileformat.']'}
+set statusline+=%=%l/%L,%c%V%8P
+
+" remap for vimgrep and quickfix
+
+nnoremap [q :cprevious<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [Q :<C-u>cfirst<CR>
+nnoremap ]Q :<C-u>clast<CR>
+
+autocmd QuickFixCmdPost *grep* cwindow
 
 "---------------------------
 " Start Neobundle Settings.
